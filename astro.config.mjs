@@ -8,6 +8,7 @@ const SITE_URL = "https://danielchicougr.github.io";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: SITE_URL,
+	base: "demo-pag",
 	integrations: [mdx(), sitemap()],
 });
