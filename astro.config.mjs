@@ -59,7 +59,7 @@ if (isBuild) {
 // https://astro.build/config
 export default defineConfig({
   site: BASE_URL,
-  base: base,
+  // base: base,
   output: "static",
 
   integrations: [mdx(), sitemap()],
