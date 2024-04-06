@@ -54,13 +54,13 @@ let base = "";
 // When you're building your site in local or in CI, you could just set your URL manually
 if (isBuild) {
   BASE_URL = LIVE_URL;
-  base = "demo_pag";
+  base = "/demo_pag";
 }
 // https://astro.build/config
 export default defineConfig({
   site: BASE_URL,
   // base: base,
-  output: "static",
+  // output: "static",
 
   integrations: [mdx(), sitemap()],
 });
