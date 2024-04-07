@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "format",
+      "problemMatcher": [],
+      "label": "npm: format",
+      "detail": "pnpm run format:code"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "npm: dev",
+      "detail": "pnpm astro dev"
+    },
+    {
+      "type": "npm",
+      "script": "update-github-pages",
+      "problemMatcher": [],
+      "isBackground": true,
+      "label": "npm: update-github-pages",
+      "detail": "pnpm run deploy-gh"
+    }
+  ]
+}

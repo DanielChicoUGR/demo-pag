@@ -8,7 +8,11 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy_gh":"gh-pages -d dist"
+    "deploy_gh": "gh-pages -d dist",
+    "format": "pnpm run format:code",
+    "format:code": "prettier -w \"**/*\" --ignore-unknown --cache",
+    "lint": "astro check",
+    "before-push": "pnpm run format:code && pnpm run lint"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -19,6 +23,41 @@
     "typescript": "^5.4.4"
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "plugins": [
+      "prettier-plugin-astro"
+    ],
+    "overrides": [
+      {
+        "files": [
+          ".*",
+          "*.json",
+          "*.md",
+          "*.toml",
+          "*.yml"
+        ],
+        "options": {
+          "useTabs": false
+        }
+      },
+      {
+        "files": [
+          "**/*.astro"
+        ],
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ]
   }
 }
