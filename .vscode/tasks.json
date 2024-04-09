@@ -6,7 +6,7 @@
       "script": "format",
       "problemMatcher": [],
       "label": "npm: format",
-      "detail": "pnpm run format:code"
+      "detail": "pnpm run format"
     },
     {
       "type": "npm",
@@ -19,7 +19,6 @@
       "type": "npm",
       "script": "update-github-pages",
       "problemMatcher": [],
-      "isBackground": true,
       "label": "npm: update-github-pages",
       "detail": "pnpm run deploy-gh"
     }

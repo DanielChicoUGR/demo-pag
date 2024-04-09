@@ -9,8 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "deploy_gh": "gh-pages -d dist",
-    "format": "pnpm run format:code",
-    "format:code": "prettier -w \"**/*\" --ignore-unknown --cache",
+    "format": "prettier -w \"**/*\" --ignore-unknown --cache",
     "lint": "astro check",
     "before-push": "pnpm run format:code && pnpm run lint"
   },
@@ -19,13 +18,20 @@
     "@astrojs/mdx": "^2.2.4",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.2",
+    "@eslint/create-config": "^1.0.0",
     "astro": "^4.5.16",
-    "typescript": "^5.4.4"
+    "eslint-config-airbnb": "^19.0.4"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^7.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^0.34.0",
     "gh-pages": "^6.1.1",
+    "globals": "^15.0.0",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.13.0",
+    "typescript": "^5.4.4",
+    "typescript-eslint": "^7.5.0"
   },
   "prettier": {
     "printWidth": 100,
