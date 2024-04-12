@@ -1,0 +1,51 @@
+---
+/**
+ * Componente EnlaceIcono
+ * 
+ * Este componente muestra un enlace con un icono y texto. El icono se muestra a la izquierda del texto.
+ * 
+ * @prop {string} iconPath - La ruta del icono que se mostrará. Debe ser una cadena que represente un `path` de SVG válido.
+ * @prop {string} viewBox - El valor del atributo `viewBox` del SVG. Debe ser una cadena en el formato "min-x min-y width height".
+ * @prop {string} url - La URL a la que apuntará el enlace.
+ * @prop {string} linkText - El texto que se mostrará en el enlace.
+ */
+import '../styles/global.css';
+interface EnlaceIconoProps {
+  iconPath: string;
+  viewBox: string;
+  url: string;
+  linkText: string;
+}
+
+const { iconPath, viewBox, url, linkText } = Astro.props as EnlaceIconoProps;
+---
+
+
+<a class="links" href={url}>
+  <div class="icon-text">
+    <span class="icon">
+      <svg aria-hidden="true" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
+        <path d={iconPath}></path>
+      </svg>
+    </span>
+  
+    <div style="font-size: small">{linkText}</div>
+  </div>
+</a>
+
+<style>
+
+
+  .icon-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+  .icon svg {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+  }
+
+</style>

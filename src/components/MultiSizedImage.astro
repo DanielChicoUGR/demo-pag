@@ -1,0 +1,33 @@
+---
+/**
+ * Componente ImagenesCarpeta
+ * 
+ * Este componente recibe como prop la dirección de una carpeta y carga las imágenes en función del ancho de la pantalla.
+ * Las imágenes deben estar en formato `<name>_<min_width>_<max_width>.<format>`.
+ * 
+ * @prop {string} dir - La dirección de la carpeta que contiene las imágenes.
+ */
+
+import fs from 'fs';
+import path from 'path';
+
+
+interface ImagenesCarpetaProps {
+  dir: string;
+}
+
+const { dir } = Astro.props as ImagenesCarpetaProps;
+const images = fs.readdirSync(dir).filter(file => ['.jpg', '.png', '.gif'].includes(path.extname(file)));
+const sortedImages = images.sort((a, b) => {
+  const aDimensions = a.split('_').slice(1);
+  const bDimensions = b.split('_').slice(1);
+  return Number(bDimensions[1]) - Number(aDimensions[1]);
+});
+---
+
+<picture>
+  {sortedImages.map((image, index) => (
+    <source media={`(min-width: ${image.split('_')[1]}px) and (max-width: ${image.split('_')[2]}px)`} srcset={`${dir}/${image}`} />
+  ))}
+  <img src={`${dir}/${sortedImages[0]}`} alt="Imagen" />
+</picture>

@@ -8,7 +8,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy_gh": "gh-pages -d dist",
+    "deploy_gh": "pnpm run build && pnpm run deploy_gh:deploy",
+    "deploy_gh:deploy": "gh-pages -d dist",
     "format": "prettier -w \"**/*\" --ignore-unknown --cache",
     "lint": "astro check",
     "before-push": "pnpm run format:code && pnpm run lint"
@@ -18,9 +19,11 @@
     "@astrojs/mdx": "^2.2.4",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.2",
+    "@astrojs/tailwind": "^5.1.0",
     "@eslint/create-config": "^1.0.0",
     "astro": "^4.5.16",
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^7.5.0",

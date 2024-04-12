@@ -1,0 +1,23 @@
+---
+// Componente EnlaceIcono.astro
+import '../styles/global.css';
+
+interface EnlaceProps {
+  url: string;
+  linkText: string;
+}
+
+const { url, linkText } = Astro.props as EnlaceProps;
+---
+
+
+<a class="links" style="font-size: small" href={url}>  
+    {linkText}
+</a>
+
+<style>
+
+a{
+    display: flex;    
+  }
+</style>

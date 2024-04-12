@@ -1,0 +1,182 @@
+---
+const menuItem = [
+  {
+    title: 'Inicio',
+    path: '/',
+  },
+  {
+    title: 'Nuestros Proyectos',
+    path: 'javascript:void(0)',
+    children: [
+      {
+        title: 'Proyecto 1',
+        path: '/proyecto-1',
+        children: [
+          { title: 'Submenu1', path: '/submenu1' },
+          { title: 'Submenu2', path: '/submenu2' },
+        ],
+      },
+      {
+        title: 'Proyecto 2',
+        path: '/proyecto-2',
+        children: [
+          { title: 'Submenu1', path: '/submenu1' },
+          { title: 'Submenu2', path: '/submenu2' },
+        ],
+      },
+      {
+        title: 'Proyecto 3',
+        path: '/proyecto-3',
+        children: [
+          { title: 'Submenu1', path: '/submenu1' },
+          { title: 'Submenu2', path: '/submenu2' },
+        ],
+      },
+      {
+        title: 'Proyecto 4',
+        path: '/proyecto-4',
+        children: [
+          { title: 'Submenu1', path: '/submenu1' },
+          { title: 'Submenu2', path: '/submenu2' },
+        ],
+      },
+      {
+        title: 'Proyecto 5',
+        path: '/proyecto-5',
+        children: [
+          { title: 'Submenu1', path: '/submenu1' },
+          { title: 'Submenu2', path: '/submenu2' },
+        ],
+      },
+      {
+        title: 'Proyecto 6',
+        path: '/proyecto-6',
+        children: [
+          { title: 'Submenu1', path: '/submenu1' },
+          { title: 'Submenu2', path: '/submenu2' },
+        ],
+      },
+      {
+        title: 'Proyecto 7',
+        path: '/proyecto-7',
+        children: [
+          { title: 'Submenu1', path: '/submenu1' },
+          { title: 'Submenu2', path: '/submenu2' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '¿Quiénes somos?',
+    path: '/quienes-somos/',
+  },
+  {
+    title: '¿Qué hacemos?',
+    path: '/que-hacemos/',
+  },
+  {
+    title: 'Difusión',
+    path: '/difusion/',
+  },
+  {
+    title: 'Contacto',
+    path: '/contacto/',
+  },
+];
+---
+
+<div id="header">
+  <ul class="nav">
+    {
+      menuItem.map((item) => (
+        <li>
+          <a href={item.path}>{item.title} </a>
+          {item.children && (
+            <ul>
+              {item.children.map((subitem) => (
+                <li>
+                  <a href={subitem.path}>{subitem.title}</a>
+                  {subitem.children && (
+                    <ul>
+                      {subitem.children.map((subsubitem) => (
+                        <li>
+                          <a href={subsubitem.path}>{subsubitem.title}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+<style>
+  #header {
+    /* display: flex; */
+    justify-content: flex-end;
+    display: flex;
+    font-size: small;
+    margin-right: 1em;
+    padding-left: 15%;
+    
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  .nav > li {
+    float: left;
+  }
+
+  .nav li a {
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: none;
+    padding: 10px 12px;
+    display: block;
+  }
+
+  .nav li a:hover {
+    color: white;
+  }
+
+  .nav li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+  }
+
+  .nav li:hover > ul {
+    display: block;
+  }
+
+  .nav li ul li {
+    position: relative;
+  }
+
+  .nav li ul li a {
+    background-color: white;
+    color: black;
+    padding: 10px;
+  }
+
+  .nav li ul li a:focus,
+  .nav li ul li a:hover {
+    color: yellow;
+  }
+  .nav li ul li ul {
+    right: -140px;
+    top: 0px;
+  }
+  @media (max-width:  720px) {
+    #header {
+      justify-content: center;
+      /* padding-left: 15%; */
+    }
+  }
+</style>

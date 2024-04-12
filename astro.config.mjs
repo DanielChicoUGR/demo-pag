@@ -1,10 +1,8 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import {
-  LOCALHOST_URL, LIVE_URL, IS_BUILD, REPO_NAME,
-} from './src/consts.ts';
-
+import { LOCALHOST_URL, LIVE_URL, IS_BUILD, REPO_NAME } from './src/consts.ts';
+import tailwind from '@astrojs/tailwind';
 let BASE_URL = LOCALHOST_URL;
 let base = REPO_NAME;
 
@@ -14,10 +12,12 @@ if (IS_BUILD) {
 } else {
   base = '/';
 }
+
+// https://astro.build/config
 export default defineConfig({
   site: BASE_URL,
   output: 'static',
   base,
   trailingSlash: 'always',
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), tailwind()],
 });

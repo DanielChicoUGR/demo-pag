@@ -1,19 +1,25 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import PagesLayout from 'src/layouts/PagesLayout.astro';
 ---
 
 <!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <h1>🧑‍🚀 Hello, Astronaut!</h1>
+<html lang="es">
+  <PagesLayout
+    title="Interciencias Home Page"
+    imagePath={'../assets/images/home_main.jpg'}
+    altText=""
+  >
+    <div slot="top" class="top-element">
+      <h1 style="font-weight: bold;">Proyectos interdisciplinares en ciencias</h1>
+      <p class="text-style">Esta es una página en la que se muestra el trabajo realizado en el Proyecto de Innovación y Buenas Prácticas Docentes Avanzados/Coordinados 2022-2024 con referencia nº22-08. Este proyecto se lleva a cabo con el alumnado matriculado en los cursos del Centro Mediterráneo</p>
+      <a class="text-style" href="https://cemed.ugr.es/curso/22gr55/">Desarrollo de proyectos Interdisciplinares en Ciencias (2022-2023)</a>
+      <a class="text-style" href="https://cemed.ugr.es/curso/23gr48/">Desarrollo de proyectos Interdisciplinares en Ciencias (II ed.) (2023-2024)</a>
+      
+
+    </div>
+
+    <div slot="body">
       <p>
         Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
         template serves as a lightweight, minimally-styled starting point for anyone looking to build
@@ -36,7 +42,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       <p>
         Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
           >read the docs
-        </a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
+        </a>
+        or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
       </p>
       <p>
         Looking for a blog template with a bit more personality? Check out <a
@@ -44,7 +51,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
           >astro-blog-template
         </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
       </p>
-    </main>
-    <Footer />
-  </body>
+    </div>
+  </PagesLayout>
+  <style>
+    .top-element {
+      /* max-width: 920px; */
+      margin-top: 5cap;
+      padding-left: 10em;
+      padding-right: 10em;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .text-style {
+      font-size: medium;
+      margin-top: 1rem;
+      
+      /* margin-bottom: 1rem; */
+    }
+  </style>
+
 </html>
