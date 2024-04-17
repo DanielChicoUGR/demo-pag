@@ -127,7 +127,7 @@ import TwitterIconBotton from 'src/components/TwitterIconBotton.astro';
         if (field.value.trim() === '') {
           this.setStatus(
             field,
-            `${field.previousElementSibling!.innerText} cannot be blank`,
+            `${field.previousElementSibling!} cannot be blank`,
             'error'
           );
         } else {
@@ -164,7 +164,6 @@ import TwitterIconBotton from 'src/components/TwitterIconBotton.astro';
           if (successIcon) {
             successIcon.classList.add('hidden');
           }
-          field.parentElement!.querySelector('.error-message')!.innerText = message!;
           errorIcon.classList.remove('hidden');
           field.classList.add('input-error');
         }

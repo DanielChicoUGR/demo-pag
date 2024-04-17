@@ -4,7 +4,7 @@
 export const SITE_TITLE = 'Astro Blog';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
 
-export const SERVER_PORT = 4321;
+export const SERVER_PORT = 4000;
 // the url to access your blog during local development
 export const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
 // the url to access your blog after deploying it somewhere (Eg. Netlify)
