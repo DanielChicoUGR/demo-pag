@@ -1,0 +1,80 @@
+---
+/**
+ * @component TarjetaExperimento
+ *
+ * Este es un componente Astro que muestra una tarjeta con una imagen, un título y una descripción.
+ *
+ * @prop {string} url - La URL a la que debe dirigir el enlace de la tarjeta.
+ * @prop {string} imagePath - La ruta a la imagen que se debe mostrar en la tarjeta.
+ * @prop {string} titulo - El título que se debe mostrar en la tarjeta.
+ * @prop {string} descripcion - La descripción que se debe mostrar en la tarjeta.
+ *
+ * @example
+ * <TarjetaExperimento
+ *   url="https://ejemplo.com"
+ *   imagePath="../ruta/a/la/imagen.jpg"
+ *   titulo="Título de la tarjeta"
+ *   descripcion="Descripción de la tarjeta"
+ * />
+ *
+ * @style
+ * El componente tiene un estilo básico que aplica `display: flex` al enlace para organizar los elementos en una fila.
+ * Puedes añadir más estilos en el bloque `<style>` del componente o en tu hoja de estilos global.
+ *
+ * @dependency
+ * Este componente depende del componente `ImageComponent.astro` para mostrar la imagen.
+ * Asegúrate de tener este componente en tu proyecto y de que la ruta de importación sea correcta.
+ */
+
+
+//import Image from './ImageComponent.astro';
+import { Image } from 'astro:assets';
+
+
+interface TarjetaExperimentoProps {
+  url: string;
+  imagePath: ImageMetadata;
+  titulo: string;
+  descripcion: string;
+}
+
+const { url, imagePath, titulo, descripcion } = Astro.props as TarjetaExperimentoProps;
+
+// const images = import.meta.glob<{ default: ImageMetadata }>(
+//   '../assets/images/*.{jpeg,jpg,png,gif}'
+// );
+// if (!images[imagePath])
+//   throw new Error(
+//     `"${imagePath}" does not exist in folder: "src/assets/images/*.{jpeg,jpg,png,gif}"`
+//   );
+---
+
+<div class="card">
+  <a href={url}>
+    <Image src={imagePath} alt={titulo} />
+    <h4>{titulo}</h4>
+    <p>{descripcion}</p>
+  </a>
+</div>
+<style>
+  .card {
+    border: 10px solid #ff0000;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 2px 20px -5px rgba(0, 0, 0, 0.57); /* Sombra reducida */
+    padding: 20px;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    text-align: center;
+}
+
+.card:hover {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.80); /* Sombra aumentada */
+    -moz-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.80); /* Sombra aumentada */
+    elevation: 15;
+    transition: all 0.4s ease 0s;
+}
+</style>

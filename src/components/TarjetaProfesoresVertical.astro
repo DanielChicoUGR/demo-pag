@@ -1,0 +1,100 @@
+---
+/**
+ * @component TarjetaExperimento
+ *
+ * Este es un componente Astro que muestra una tarjeta con una imagen, un título y una descripción.
+ *
+ * @prop {string} url - La URL a la que debe dirigir el enlace de la tarjeta.
+ * @prop {string} imagePath - La ruta a la imagen que se debe mostrar en la tarjeta.
+ * @prop {string} titulo - El título que se debe mostrar en la tarjeta.
+ * @prop {string} descripcion - La descripción que se debe mostrar en la tarjeta.
+ *
+ * @example
+ * <TarjetaExperimento
+ *   url="https://ejemplo.com"
+ *   imagePath="../ruta/a/la/imagen.jpg"
+ *   titulo="Título de la tarjeta"
+ *   descripcion="Descripción de la tarjeta"
+ * />
+ *
+ * @style
+ * El componente tiene un estilo básico que aplica `display: flex` al enlace para organizar los elementos en una fila.
+ * Puedes añadir más estilos en el bloque `<style>` del componente o en tu hoja de estilos global.
+ *
+ * @dependency
+ * Este componente depende del componente `ImageComponent.astro` para mostrar la imagen.
+ * Asegúrate de tener este componente en tu proyecto y de que la ruta de importación sea correcta.
+ */
+
+
+//import  Image  from './ImageComponent.astro';
+import { Image } from 'astro:assets';
+
+
+interface TarjetaProfesorVertical {
+  imagePath: ImageMetadata;
+  nombre: string;
+  titulo: string;
+  accion: string;
+}
+
+const { nombre, imagePath, titulo, accion } = Astro.props as TarjetaProfesorVertical;
+
+// const images = import.meta.glob<{ default: ImageMetadata }>(
+//   '../assets/images/*.{jpeg,jpg,png,gif}'
+// );
+// if (!images[imagePath])
+//   throw new Error(
+//     `"${imagePath}" does not exist in folder: "src/assets/images/*.{jpeg,jpg,png,gif}"`
+//   );
+---
+
+<div class="card">
+  <Image src={imagePath} alt={titulo} class="icon" />
+  <h5>{nombre}</h5>
+  <p class="cap" >{accion}</p>
+  <h6 class="cap">{titulo}</h6>
+</div>
+<style>
+  .icon{
+    border-radius: 50%; 
+    margin-inline:auto;
+    margin-bottom:10px;
+  }
+  p{
+    color:grey;
+  }
+
+  h5,
+  h6{
+    /*bold*/
+    font-weight: bold;
+  }
+
+  h5{
+    font-size: small;
+  }
+
+  h6{
+    font-size: xx-small;
+  }
+
+  /*/make text capitalizad*/
+  .cap{
+    text-transform: uppercase;
+  }
+  .card {
+    
+    border: 10px solid #ff0000;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 2px 20px -5px rgba(0, 0, 0, 0.57); /* Sombra reducida */
+    padding-top: 30px;
+    padding-inline: 3em;
+    padding-bottom: 30px;
+
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    text-align: center;
+  }
+</style>

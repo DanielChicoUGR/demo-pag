@@ -1,0 +1,66 @@
+---
+import PagesLayout from 'src/layouts/PagesLayout.astro';
+import home_img from 'src/assets/images/home_main.jpg';
+---
+
+<PagesLayout title="Experimento ASIMOV" imagePath={home_img}>
+  <div slot="top" class="top-element">
+    <span class="decorator"> Proyecto en Bioquímica </span>
+
+    <h1>ASIMOV. Aula de simulación y modelado virtual de procesos bio-moleculares</h1>
+  </div>
+
+  <h1>¿En qué consiste este proyecto?</h1>
+  <p>
+    Se trata de un proyecto cuyo objetivo final es el desarrollo de una herramienta informática
+    flexible y escalable para la simulación de procesos metabólicos. Básicamente, la aplicación
+    deberá aceptar, como entrada, la descripción formal de los sistemas dinámicos, en términos de
+    ecuaciones diferenciales, y disponer de un motor de integración numérica capaz de resolverlos.
+    La aplicación estará dotada, además, de una interfaz gráfica adecuada, para representar
+    convenientemente la evolución del sistema a partir de condiciones iniciales dadas.
+    <br />
+    La idea es que la herramienta permita la incorporación sucesiva de fragmentos metabólicos, de forma
+    que las simulaciones puedan escalarse, abarcando conjuntos cada vez mayores de procesos metabólicos
+    y sea suficientemente flexible como para que pueda contemplar interacciones dinámicas complejas entre
+    ellos.
+  </p>
+
+  <h1>Objetivos</h1>
+  <p>
+    Los objetivos que se plantean son los siguientes:
+    <br />
+    Definir un ecosistema de programación adecuado que facilite al máximo la implementación del proyecto,
+    tanto en términos de lenguajes informáticos a emplear como en términos de diseño del “workflow” adecuado.
+    <br />
+
+    Definir el protocolo de entrada de datos, incluyendo la descripción formal de los procesos
+    metabólicos (ecuaciones del sistema) y la implementación de a) una interfaz de entrada y b) una
+    adecuada representación interna de los datos experimentales. Diseñar un motor de integración
+    eficiente, capaz de resolver sistemas de ecuaciones diferenciales simultáneas y no lineales.
+    <br />
+
+    Diseñar una interfaz gráfica amigable, que facilite tanto la entrada de datos experimentales
+    como la visualización (y, eventualmente, el análisis) de los resultados obtenidos en cada
+    simulación.
+  </p>
+
+  <h1>Enlaces a las Ediciones</h1>
+</PagesLayout>
+<style>
+  .decorator {
+    --divider-border-style: solid;
+    --divider-border-width: 1.5px;
+    --divider-color: #f5f5f5;
+    --divider-element-spacing: 25px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .decorator::before,
+  .decorator::after {
+    display: block;
+    content: '';
+    border-bottom: 0;
+    border-top: var(--divider-border-width) var(--divider-border-style) var(--divider-color);
+  }
+</style>

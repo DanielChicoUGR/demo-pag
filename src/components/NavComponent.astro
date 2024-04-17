@@ -9,8 +9,8 @@ const menuItem = [
     path: 'javascript:void(0)',
     children: [
       {
-        title: 'Proyecto 1',
-        path: '/proyecto-1',
+        title: 'ASIMOV',
+        path: '/asimov/',
         children: [
           { title: 'Submenu1', path: '/submenu1' },
           { title: 'Submenu2', path: '/submenu2' },
@@ -85,7 +85,7 @@ const menuItem = [
 ];
 ---
 
-<div id="header">
+<header id="header">
   <ul class="nav">
     {
       menuItem.map((item) => (
@@ -113,16 +113,28 @@ const menuItem = [
       ))
     }
   </ul>
-</div>
+</header>
 <style>
-  #header {
-    /* display: flex; */
+  header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 40;
+    elevation: 40;
     justify-content: flex-end;
     display: flex;
-    font-size: small;
-    margin-right: 1em;
-    padding-left: 15%;
-    
+    font-size: medium;
+    padding-right: 10em;
+  
+
+  }
+
+  @media (max-width: 1200px) {
+    header {
+      padding-right: 0;
+    }
   }
 
   ul,
@@ -172,11 +184,5 @@ const menuItem = [
   .nav li ul li ul {
     right: -140px;
     top: 0px;
-  }
-  @media (max-width:  720px) {
-    #header {
-      justify-content: center;
-      /* padding-left: 15%; */
-    }
   }
 </style>

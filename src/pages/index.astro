@@ -1,78 +1,239 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import PagesLayout from 'src/layouts/PagesLayout.astro';
+import TarjetaExperimento from '../components/TarjetaExperimento.astro';
+
+import TarjetaProfesores from 'src/components/TarjetaProfesoresVertical.astro';
+
+import Columnas from 'src/components/ColumnasNombres.astro';
+import home_img from '../assets/images/home_main.jpg';
+import atoms_img from '../assets/images/atoms-molecule-chemistry.jpg';
+import profesora_img from '../assets/images/MJCaceres-150x130.jpeg';
+import TwitterIconBotton from 'src/components/TwitterIconBotton.astro';
+import InstagramIconBotton from 'src/components/InstagramIconBotton.astro';
 ---
 
-<!doctype html>
-<html lang="es">
-  <PagesLayout
-    title="Interciencias Home Page"
-    imagePath={'../assets/images/home_main.jpg'}
-    altText=""
-  >
-    <div slot="top" class="top-element">
-      <h1 style="font-weight: bold;">Proyectos interdisciplinares en ciencias</h1>
-      <p class="text-style">Esta es una página en la que se muestra el trabajo realizado en el Proyecto de Innovación y Buenas Prácticas Docentes Avanzados/Coordinados 2022-2024 con referencia nº22-08. Este proyecto se lleva a cabo con el alumnado matriculado en los cursos del Centro Mediterráneo</p>
-      <a class="text-style" href="https://cemed.ugr.es/curso/22gr55/">Desarrollo de proyectos Interdisciplinares en Ciencias (2022-2023)</a>
-      <a class="text-style" href="https://cemed.ugr.es/curso/23gr48/">Desarrollo de proyectos Interdisciplinares en Ciencias (II ed.) (2023-2024)</a>
-      
+<PagesLayout title="Interciencias Home Page" imagePath={home_img} altText="">
 
-    </div>
+  
+  <div slot="top" class="top-element">
+    <h1>Proyectos interdisciplinares en ciencias</h1>
+    <p class="text-style" style="color: white; font-size: 18px;">
+      Esta es una página en la que se muestra el trabajo realizado en el Proyecto de Innovación y
+      Buenas Prácticas Docentes Avanzados/Coordinados 2022-2024 con referencia nº22-08. Este
+      proyecto se lleva a cabo con el alumnado matriculado en los cursos del Centro Mediterráneo
+    </p>
+    {/*Estilos en linea ->tamaño de la letra y subrayado de los enlaces  */}
+    <a
+      style="font-size:18px; text-decoration: underline;"
+      class="links"
+      href="https://cemed.ugr.es/curso/22gr55/"
+      >Desarrollo de proyectos Interdisciplinares en Ciencias (2022-2023)</a
+    >
+    {/*Estilos en linea ->tamaño de la letra y subrayado de los enlaces  */}
+    <a
+      style="font-size:18px; text-decoration: underline;"
+      class="links"
+      href="https://cemed.ugr.es/curso/23gr48/"
+      >Desarrollo de proyectos Interdisciplinares en Ciencias (II ed.) (2023-2024)</a
+    >
+  </div>
 
-    <div slot="body">
-      <p>
-        Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-        template serves as a lightweight, minimally-styled starting point for anyone looking to build
-        a personal website, blog, or portfolio with Astro.
-      </p>
-      <p>
-        This template comes with a few integrations already configured in your
-        <code>astro.config.mjs</code> file. You can customize your setup with
-        <a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-        React, or Vue to your project.
-      </p>
-      <p>Here are a few ideas on how to get started with the template:</p>
-      <ul>
-        <li>Edit this page in <code>src/pages/index.astro</code></li>
-        <li>Edit the site header items in <code>src/components/Header.astro</code></li>
-        <li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-        <li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-        <li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-      </ul>
-      <p>
-        Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-          >read the docs
-        </a>
-        or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-      </p>
-      <p>
-        Looking for a blog template with a bit more personality? Check out <a
-          href="https://github.com/Charca/astro-blog-template"
-          >astro-blog-template
-        </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-      </p>
-    </div>
-  </PagesLayout>
-  <style>
-    .top-element {
-      /* max-width: 920px; */
-      margin-top: 5cap;
-      padding-left: 10em;
-      padding-right: 10em;
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+
+
+  <h2>Descripción general</h2>
+  <p class="width">
+    Vivimos en una era en la que se compagina la especialización con la interdisciplinariedad. Cada
+    día surgen nuevas demandas de la sociedad que crean nuevas carreras profesionales y nuevos
+    retos, que requieren conocimientos de áreas muy diversas. Con este curso pretendemos poner en
+    práctica la especialización y la interdisciplinariedad, romper con la estructura encorsetada de
+    asignaturas y grados y construir un espacio de encuentro entre alumnado y profesorado de
+    ciencias para el desarrollo de proyectos concretos, mediante dinámicas participativas
+    interdisciplinarias.
+  </p>
+
+  {/*TODO: Enlaces a las homepage experimentos */}
+  <div class="grid">
+    <TarjetaExperimento
+      url="/"
+      titulo="ASIMOV. Aula de simulación y modelado virtual de procesos bio-moleculares"
+      descripcion="El alumnado deberá documentar un sistema biológico y plantear de forma conjunta una estrategia para abordar la definición del modelo en términos de sistemas de ecuaciones diferenciales, el desarrollo de una aplicación informática de simulación del sistema propuesto, la definición de una estrategia de ajuste de parámetros, y análisis de los resultados obtenidos."
+      imagePath={atoms_img}
+    />
+    <TarjetaExperimento
+      url="/"
+      titulo="Estudio de partículas atmosféricas a partir de su interacción con un láser multicolor"
+      descripcion="Con este proyecto se pretende caracterizar las secciones eficaces de extinción y de dispersión de radiación por partículas individuales de aerosol de distintos tipos. También evaluar de forma precisa a partir de estos parámetros las propiedades ópticas y microfísicas del aerosol y su implicación en el cambio climático."
+      imagePath={atoms_img}
+    />
+    <TarjetaExperimento
+      url="/"
+      titulo="Diferencias en la respiración de un suelo agrícola según el tipo de uso del suelo"
+      descripcion="El objetivo fundamental de este proyecto consiste en estudiar el efecto que distintos tipos de sustrato tiene sobre la respiración de la comunidad heterótrofa que habita en un suelo agrícola."
+      imagePath={atoms_img}
+    />
+
+    <TarjetaExperimento
+      url="/"
+      titulo="Nanosuperficies. El mundo a escala molecular"
+      descripcion="Consiste en realizar una descripción analítica de las superficies moleculares, establecida a partir de los datos obtenidos en la bibliografía fundamental proporcionada. Así como su aplicación directa sobre estructuras macromoleculares, mediante el uso de ficheros de estructura tipo PDB (Protein Data Bank)."
+      imagePath={atoms_img}
+    />
+    <TarjetaExperimento
+      url="/"
+      titulo="Construcción de un ojo artificial"
+      descripcion="Consiste en la elaboración y montaje de un ojo artificial capaz de conseguir la proyección de imágenes nítidas y de calidad. De manera general, se busca poner en juego de manera complementaria los conocimientos de trazado de rayos, propiedades físicas y químicas de los materiales y conocer y manejar los factores que limitan la calidad de la imagen retiniana."
+      imagePath={atoms_img}
+    />
+    <TarjetaExperimento
+      url="/"
+      titulo="Conduciendo la luz natural para el desarrollo de vegetación subterránea"
+      descripcion="Construcción de un dispositivo capaz la mayor cantidad de luz natural favorable al desarrollo de algunas plantas, introducirla y distribuirla en el dispositivo, siendo éste un simulador de “espacio subterráneo” (carente de luz)."
+      imagePath={atoms_img}
+    />
+    <TarjetaExperimento
+      url="/"
+      titulo="Entre la física y la biología: el papel del polen en la formación de nubes y el clima"
+      descripcion="En este proyecto el objetivo es determinar la capacidad de activación como núcleo de condensación de nube de diferentes tipos polínicos característicos del clima Mediterráneo."
+      imagePath={atoms_img}
+    />
+  </div>
+
+  <h2>Personal encargado</h2>
+  <p class="width" style="text-align:center">
+    El equipo está compuesto por profesorado y alumnado de los distintos grados impartidos en la
+    facutad de ciencias.
+  </p>
+
+  <h4>Dirección y coordinación</h4>
+
+  <div class="grid2">
+    <TarjetaProfesores
+      nombre="María José Cáceres Granados"
+      titulo="profesora titular de Universidad, Departamento de matemática aplicada"
+      accion="Dirección"
+      imagePath={profesora_img}
+    />
+    <TarjetaProfesores
+      nombre="Paloma Cariñanos González"
+      titulo="PROFESORA TITULAR DE UNIVERSIDAD, DEPARTAMENTO DE BOTÁNICA"
+      accion="Coordinadora de biología"
+      imagePath={profesora_img}
+    />
+
+    <TarjetaProfesores
+      nombre="Fernando Reyes Zurita"
+      titulo="PROFESOR TITULAR DE UNIVERSIDAD, DEPARTAMENTO DE BIOQUÍMICA Y BIOLOGÍA MOLECULAR I"
+      accion="COORDINADOR DE BIOQUÍMICA"
+      imagePath={profesora_img}
+    />
+
+    <TarjetaProfesores
+      nombre="María José Granados Muñoz"
+      titulo="Profesora contratada, Departamento de física aplicada"
+      accion="Coordinadora de Física"
+      imagePath={profesora_img}
+    />
+    <TarjetaProfesores
+      nombre="Pilar Granados Delgado"
+      titulo="Profesora sustituta interina, departamento de óptica"
+      accion="Coordinadora de óptica"
+      imagePath={profesora_img}
+    />
+
+    <TarjetaProfesores
+      nombre="Lidia Fernández Rodríguez"
+      titulo="PROFESORA TITULAR DE UNIVERSIDAD, DEPARTAMENTO DE MATEMÁTICA APLICADA"
+      accion="COORDINADORA DE MATEMÁTICAS"
+      imagePath={profesora_img}
+    />
+  </div>
+  <h4 style="margin-top:15px">Profesorado encargado de los experimentos</h4>
+  <Columnas
+    listado="Fabián Casas Arenas,Penélope Serrano Ortiz,Margarita Arias López,Nuria Rico Castro,Juan Campos Rodríguez,Ana Romero Freire,Hilario Ramírez Rodrigo,Fernando Reyes Zurita,Juan Sainz Pérez,María José Sáez Lara,Lidia Fernández Rodríguez,Aureliano M. Robles Pérez,María José Granados Muñoz,Antonio Valenzuela Gutiérrez,María J. Cáceres Granados,Ana Belén López Baldomero,Paloma Cariñanos González,Gloria Titos Vela,Pilar Granados Delgado,María de la Natividad Tejada Casado,Francesco Martino,Elena Bazo González"
+  />
+  <h4 style="margin-top:15px">Estudiantes Curso 2022-2023</h4>
+  <Columnas
+    listado="Inmaculada Agredano Espinal (Grado en Estadística),Jorge Luis Jiménez da Silva (Grado en Física),Jesús Muñoz Jiménez (Grado en Óptica y Optometría),Francisco Luis Navarro Martínez (Grado en Estadística),José Antonio De La Rosa Cubero (Doble Grado en Ingeniería Informática y Matemáticas),Dolores Esteve Díaz (Doble Grado en Física y Matemáticas),Adrian Moreno Sanchez (Doble Grado en Física y Matemáticas),Gabriel Sánchez Muñoz (Doble Grado en Ingeniería Informática y Matemáticas),Higinio Paterna Ortiz (Doble Grado en Ingeniería Informática y Matemáticas),Nicolás Postigo López (Grado en Biología),Álvaro Rodríguez Gallardo (Doble Grado en Ingeniería Informática y Matemáticas),Fco. Ismael Román Moreno (Licenciatura en Biología),Pablo Vázquez Domínguez Domínguez (Grado en Biotecnología),Jorge Buenestado Domínguez (Grado en Física),Rocío Cadenas Pacheco (Grado en Ciencias Ambientales),Lucía García Fernández-Santaella (Grado en Óptica y Optometría),Daniel Rodríguez Aguilar (Grado en Matemáticas),Miguel Roldán Rosales (Grado en Matemáticas),Ginés Santiago Gras Alix (Grado en Ciencias Ambientales),Iván Donaire Pavón (Grado en Óptica y Optometría),Paloma Gil Franco (Grado en Matemáticas),Sabrin Milud Chanboun (Grado en Óptica y Optometría),Juan Lucas Pérez Cervantes (Grado en Física),Fátima Esperanza Rodríguez Farfach (Grado en Óptica y Optometría),María Victoria Bignú (Grado en Biología),Josep Marti Puig (Grado en Biología),Juan Manuel Montes López (Máster FisyMat),Álvaro Peláez Pérez (Grado en Biología),Marina Tello Madueño (Grado en Biología),Martina Riera Ojea (Grado en Matemáticas),Carmen Plata Fernández (Grado en Estadística),Elena Beltrán Gallego (Grado en Biología),Javier Cabezas Berrido (Grado en Biología),María José Pérez Martín (Grado en Ciencias Ambientales),Víctor Ramírez Sáez (Grado en Estadística),Alberto Aguilar Romero (Grado en Matemáticas)"
+  />
+
+  <h4 style="margin-top:15px">Estudiantes Curso 2023-2024</h4>
+  <Columnas
+    listado="Ariadna Herruzo Estrada,Miguel Ángel Jiménez López,Pablo Orellana Chornyak,Marc Planells Pelegrín,María del Carmen Ramírez Trujillo,Taisiia Steiukha Romanova,Miguel Cuberos Muñoz,Lorena Gómez Gómez,Víctor González García,Elena Torres Fernández,Alba Torres Gómez,Cloe Biedma López,Ángela Hidalgo Valverde,Jorge Rueda de Gracia,Fernando Cordero Martín,Alba Díez Santos,Jin Chengyu,José Manuel Montes Armenteros,Elena Rios Martin,Esther Torralba Delgado,José Luis Aguilera López,Oskar Borgvall González,Lola Castellón Ruiz,Jesús García Sanchez,Claudia González Arnaiz,Daniel Sánchez Correa,David Aguilar Zafra,María Rocío Casas Aranda,Erika Hristov Palma,Águeda María Zamora Arispón,Adrián Carballo Carballo,Alhambra Espigares García,Lucía López González,Pilar Pérez Abellán,Lucía Sánchez Plata"
+  />
+
+  <h1 style="margin-top:1em;">Únete</h1>
+  <p>Si deseas participar en alguno de nuestros proyectos futuros, no dudes en contactarnos</p>
+
+  <h4>Unete a unos de nuestros proyectos</h4>
+  <h6>contacto:</h6>
+  <a href="mailto:interciencias@ugr.es" style="font-weight:bold"><h4>interciencias@ugr.es</h4></a>
+
+  <!-- fill: var(--e-social-icon-icon-color); -->
+  <div style="display:flex">
+    <TwitterIconBotton />
+    <InstagramIconBotton />
+  </div>
+</PagesLayout>
+
+<style>
+  .social-icon-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .social-icon {
+    border-radius: 10%;
+    fill: white;
+    display: inline-block;
+    padding: 10px; /* Espacio alrededor del icono */
+  }
+
+  .twitter {
+    background-color: blue; /* Fondo azul para Twitter */
+  }
+
+  .instagram {
+    background-color: rgb(0, 0, 0); /* Fondo rosa para Instagram */
+  }
+
+  .grid2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px; /* El grid no se expandirá más allá de 2500px */
+    margin: 0 auto; /* Centra el grid horizontalmente */
+  }
+
+  @media (max-width: 900px) {
+    .grid2 {
+      grid-template-columns: 1fr; /* En pantallas pequeñas, las tarjetas se apilan verticalmente */
     }
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    align-items: start;
+    grid-auto-flow: dense;
+    margin: auto;
+  }
 
-    .text-style {
-      font-size: medium;
-      margin-top: 1rem;
-      
-      /* margin-bottom: 1rem; */
+  .margin {
+    margin-inline:;
+  }
+  @media (min-width: 600px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
     }
-  </style>
+  }
 
-</html>
+  @media (min-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

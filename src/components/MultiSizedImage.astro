@@ -26,7 +26,7 @@ const sortedImages = images.sort((a, b) => {
 ---
 
 <picture>
-  {sortedImages.map((image, index) => (
+  {sortedImages.map((image, _) => (
     <source media={`(min-width: ${image.split('_')[1]}px) and (max-width: ${image.split('_')[2]}px)`} srcset={`${dir}/${image}`} />
   ))}
   <img src={`${dir}/${sortedImages[0]}`} alt="Imagen" />

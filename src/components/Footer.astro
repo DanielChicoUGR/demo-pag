@@ -1,17 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-
 import LinksWithIcon from './LinkWithIcon.astro';
 import Link from './LinkFooter.astro';
 
-import logoUgr from '../assets/images/logo_ugr_negativo-300x84.png'
+import logoUgr from '../assets/images/logo_ugr_negativo.png'
 import logoCEMED from '../assets/images/logo_centro_mediterraneo-300x102.png'
 import logoCiencias from '../assets/images/logo_facultad_ciencias_negativo-300x255.png'
 
 
 
 
-const today = new Date();
 ---
 
 <footer>
@@ -74,6 +72,7 @@ const today = new Date();
     background: linear-gradient(#383e32, #1b1b1b);
     display: flex;
     justify-content: space-evenly;
+    
   }
 
   p {
@@ -96,7 +95,6 @@ const today = new Date();
 
   h3 {
     font-size: large;
-    font-weight: bold;
   }
 
   @media (max-width: 1024px) {

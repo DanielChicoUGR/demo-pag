@@ -1,0 +1,24 @@
+---
+interface EnlaceIconoProps {
+  listado: string;
+}
+
+const { listado } = Astro.props as EnlaceIconoProps;
+
+const nombres=listado.split(',');
+---
+
+<ul class="two-columns">
+  {nombres.map((item) => <li>{item}</li>)}
+</ul>
+
+<style>
+  .two-columns {
+    font-size: 16px;
+    color: grey;
+    text-align: center;
+    column-count: 2; /* Divide la lista en dos columnas */
+    column-gap: 1em; /* Espacio entre columnas */
+    list-style: none;
+  }
+</style>
